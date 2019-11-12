@@ -6,15 +6,21 @@
 *.lo
 *.o
 *.obj
+*.iobj
+*.ipdb
 
 # Precompiled Headers
 *.gch
 *.pch
+*.ipch
 
 # Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
+*.db
+*.pdb
+*.idb
 
 # Fortran module files
 *.mod
@@ -30,3 +36,11 @@
 *.exe
 *.out
 *.app
+
+*.log
+*.tlog
+*.user
+*.suo
+*.opendb
+*.db-shm
+*.db-wal
