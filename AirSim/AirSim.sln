@@ -21,8 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloCar", "HelloCar\HelloCar.vcxproj", "{4358ED90-CCA1-47A8-8D68-A260F212931E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Examples", "Examples\Examples.vcxproj", "{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,18 +57,6 @@ Global
 		{4358ED90-CCA1-47A8-8D68-A260F212931E}.Release|x64.Build.0 = Release|x64
 		{4358ED90-CCA1-47A8-8D68-A260F212931E}.Release|x86.ActiveCfg = Release|Win32
 		{4358ED90-CCA1-47A8-8D68-A260F212931E}.Release|x86.Build.0 = Release|Win32
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Debug|ARM.ActiveCfg = Debug|Win32
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Debug|x64.ActiveCfg = Debug|x64
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Debug|x64.Build.0 = Debug|x64
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Debug|x86.ActiveCfg = Debug|Win32
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Debug|x86.Build.0 = Debug|Win32
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Release|Any CPU.ActiveCfg = Release|Win32
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Release|ARM.ActiveCfg = Release|Win32
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Release|x64.ActiveCfg = Release|x64
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Release|x64.Build.0 = Release|x64
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Release|x86.ActiveCfg = Release|Win32
-		{C679466F-9D35-4AFC-B9AE-F9FB5448FB99}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
