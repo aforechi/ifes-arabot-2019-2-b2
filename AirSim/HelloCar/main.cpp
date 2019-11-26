@@ -12,6 +12,8 @@ STRICT_MODE_ON
 #include <chrono>
 #include <fstream>
 #include <math.h>
+#include <sstream>
+#include "main.h"
 
 std::ofstream Valores("Valores.txt");
 
@@ -79,8 +81,48 @@ void moveForwardAndBackward(msr::airlib::CarRpcLibClient &client)
 	client.setCarControls(CarApiBase::CarControls());
 }
 
-int main()
+void Lerarquivodepontos()
 {
+	Valores.close();
+	std::ifstream leitura;
+	leitura.open("Coordenadas 1m.txt");
+	while (!leitura.eof()) {
+		string linha;
+		string coluna;
+		std::getline(leitura, linha);
+		std::istringstream colunas(linha);
+		while (!colunas.eof()) {
+			std::getline(colunas, coluna, ',');
+			std::cout << coluna << std::endl;
+		}
+
+
+
+
+	}
+}
+
+void Salvararquivopontos(msr::airlib::CarRpcLibClient &client)
+{
+	msr::airlib::Pose car_poseInitial;
+	car_poseInitial.position[0] = 0;
+	car_poseInitial.position[1] = 0;
+	msr::airlib::Pose car_poseFinal;
+	do {
+		auto car_state = client.getCarState();
+		car_poseFinal = car_state.kinematics_estimated.pose;
+		auto car_speed = car_state.speed;
+		if (deveSalvarPonto(car_poseInitial, car_poseFinal, 1)) {
+			saveCarPose(car_poseInitial, car_speed);
+			car_poseInitial = car_poseFinal;
+		}
+	} while (!ChegouNoFinal(car_poseInitial));
+}
+
+int main()
+{	
+	Lerarquivodepontos();
+
 	std::cout << "Verifique se o arquivo Documentos\\AirSim\\settings.json " <<
 		"está configurado para simulador de carros \"SimMode\"=\"Car\". " <<
 		"Pressione Enter para continuar." << std::endl;
@@ -91,19 +133,7 @@ int main()
 		client.confirmConnection();
 		client.reset();
 
-		msr::airlib::Pose car_poseInitial;
-		car_poseInitial.position[0] = 0;
-		car_poseInitial.position[1] = 0;
-		msr::airlib::Pose car_poseFinal;
-		do {
-			auto car_state = client.getCarState();
-			car_poseFinal = car_state.kinematics_estimated.pose;
-			auto car_speed = car_state.speed;
-			if (deveSalvarPonto(car_poseInitial, car_poseFinal, 1)) {
-				saveCarPose(car_poseInitial, car_speed);
-				car_poseInitial = car_poseFinal;
-			}
-		} while (!ChegouNoFinal(car_poseInitial));
+		Salvararquivopontos(client);
 
 	}
 	catch (rpc::rpc_error&  e) {
@@ -111,6 +141,8 @@ int main()
 		std::cout << "Verifique a exceção lançada pela API do AirSim." << std::endl << msg << std::endl; std::cin.get();
 	}
 
-	Valores.close();
+
+
+
 	return 0;
 }

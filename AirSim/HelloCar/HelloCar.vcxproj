@@ -31,7 +31,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="main.h" />
+    <ClInclude Include="MAIN.H" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4358ED90-CCA1-47A8-8D68-A260F212931E}</ProjectGuid>
