@@ -5,6 +5,7 @@ STRICT_MODE_OFF
 #endif // !RPCLIB_MSGPACK
 #include "rpc/rpc_error.h"
 STRICT_MODE_ON
+#include <stdlib.h>
 
 #include "vehicles/car/api/CarRpcLibClient.hpp"
 #include "common/common_utils/FileSystem.hpp"
@@ -14,10 +15,13 @@ STRICT_MODE_ON
 #include <math.h>
 #include <sstream>
 #include "main.h"
+#include <cstring>
+#include <string>
 
 std::ofstream Valores("Valores.txt");
 
 using namespace msr::airlib;
+float x[], y[], v[];
 
 bool ChegouNoFinal(const msr::airlib::Pose &pose)
 {
@@ -83,6 +87,7 @@ void moveForwardAndBackward(msr::airlib::CarRpcLibClient &client)
 
 void Lerarquivodepontos()
 {
+	int i = 0;
 	Valores.close();
 	std::ifstream leitura;
 	leitura.open("Coordenadas 1m.txt");
@@ -92,8 +97,12 @@ void Lerarquivodepontos()
 		std::getline(leitura, linha);
 		std::istringstream colunas(linha);
 		while (!colunas.eof()) {
-			std::getline(colunas, coluna, ',');
+			std::getline(colunas, coluna, ';');
 			std::cout << coluna << std::endl;
+			x[i] = atof(coluna,str.c_str());
+			y[i] = atof(coluna,str.c_str());
+			v[i] = atof(coluna,str.c_str());
+			i++;
 		}
 
 
