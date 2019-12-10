@@ -1,0 +1,8 @@
+﻿1>------ Compilação iniciada: Projeto: AirLib, Configuração: Debug x64 ------
+1>RpcLibClientBase.cpp
+1>RpcLibServerBase.cpp
+1>MultirotorApiBase.cpp
+1>ObstacleMap.cpp
+1>SafetyEval.cpp
+1>FileSystem.cpp
+1>CarRpcLibClient.cpp

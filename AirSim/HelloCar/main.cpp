@@ -115,9 +115,31 @@ int main()
 	std::cin.get();
 
 	msr::airlib::CarRpcLibClient client;
+	Waypoints checkpoints, trajectory;
+	
 	try {
+		msr::airlib::Pose car_poseInitial;
+		msr::airlib::Pose car_poseFinal;
+		
 		client.confirmConnection();
 		client.reset();
+
+		std::cout << "Digite 1 para modo manual e 2 para automatico" << std::endl;
+		int opçao;
+		std::cin >> opçao;
+
+		if (opçao == 2) {
+			checkpoints.LoadWaypoints("Coordenadas 1m.txt");
+		}
+		do {
+			auto car_state = client.getCarState();
+			car_poseFinal = car_state.kinematics_estimated.pose;
+			auto car_speed = car_state.speed;
+			if (deveSalvarPonto(car_poseInitial, car_poseFinal, 1)) {
+				saveCarPose(car_poseInitial, car_speed);
+				car_poseInitial = car_poseFinal;
+			}
+		} while (!ChegouNoFinal(car_poseInitial));
 
 		//Salvararquivopontos(client);
 
