@@ -65,7 +65,7 @@ int main()
 	_tsetlocale(LC_ALL, _T("portuguese"));
 
 	Waypoints checkpoints, trajectory;
-	LateralControl lateral_control(2.3, 1, 4);
+	LateralControl lateral_control(2.3, 1, 8.5);
 	LongitudinalControl velocity_control(1.0, 1.0, 0.01);
 	msr::airlib::CarRpcLibClient client;
 
