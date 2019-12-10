@@ -31,7 +31,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Interp.h" />
+    <ClInclude Include="LateralControl.h" />
+    <ClInclude Include="LongitudinalControl.h" />
     <ClInclude Include="MAIN.H" />
+    <ClInclude Include="Waypoints.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4358ED90-CCA1-47A8-8D68-A260F212931E}</ProjectGuid>
@@ -126,7 +130,7 @@
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\AirLib\deps\rpclib\include;include;$(ProjectDir)..\AirLib\deps\eigen3;$(ProjectDir)..\AirLib\include</AdditionalIncludeDirectories>
