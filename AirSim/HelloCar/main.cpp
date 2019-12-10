@@ -14,14 +14,15 @@ STRICT_MODE_ON
 #include <fstream>
 #include <math.h>
 #include <sstream>
-#include "main.h"
 #include <cstring>
 #include <string>
-
+#include "LateralControl.h"
+#include "LongitudinalControl.h"
+#include "Waypoints.h"
 std::ofstream Valores("Valores.txt");
 
 using namespace msr::airlib;
-float x[], y[], v[];
+
 
 bool ChegouNoFinal(const msr::airlib::Pose &pose)
 {
@@ -85,31 +86,7 @@ void moveForwardAndBackward(msr::airlib::CarRpcLibClient &client)
 	client.setCarControls(CarApiBase::CarControls());
 }
 
-void Lerarquivodepontos()
-{
-	int i = 0;
-	Valores.close();
-	std::ifstream leitura;
-	leitura.open("Coordenadas 1m.txt");
-	while (!leitura.eof()) {
-		string linha;
-		string coluna;
-		std::getline(leitura, linha);
-		std::istringstream colunas(linha);
-		while (!colunas.eof()) {
-			std::getline(colunas, coluna, ';');
-			std::cout << coluna << std::endl;
-			x[i] = atof(coluna,str.c_str());
-			y[i] = atof(coluna,str.c_str());
-			v[i] = atof(coluna,str.c_str());
-			i++;
-		}
 
-
-
-
-	}
-}
 
 void Salvararquivopontos(msr::airlib::CarRpcLibClient &client)
 {
@@ -130,7 +107,7 @@ void Salvararquivopontos(msr::airlib::CarRpcLibClient &client)
 
 int main()
 {	
-	Lerarquivodepontos();
+	//Lerarquivodepontos();
 
 	std::cout << "Verifique se o arquivo Documentos\\AirSim\\settings.json " <<
 		"está configurado para simulador de carros \"SimMode\"=\"Car\". " <<
@@ -142,7 +119,7 @@ int main()
 		client.confirmConnection();
 		client.reset();
 
-		Salvararquivopontos(client);
+		//Salvararquivopontos(client);
 
 	}
 	catch (rpc::rpc_error&  e) {
