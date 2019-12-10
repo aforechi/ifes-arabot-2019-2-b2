@@ -22,7 +22,6 @@ STRICT_MODE_ON
 #include <tchar.h>
 
 using namespace msr::airlib;
-float x[], y[], v[];
 
 bool ChegouNoFinal(const msr::airlib::Pose &pose)
 {
@@ -66,14 +65,14 @@ int main()
 	_tsetlocale(LC_ALL, _T("portuguese"));
 
 	Waypoints checkpoints, trajectory;
-	LateralControl lateral_control(2.3, 1, 1);
+	LateralControl lateral_control(2.3, 1, 4);
 	LongitudinalControl velocity_control(1.0, 1.0, 0.01);
 	msr::airlib::CarRpcLibClient client;
 
 	int escolhaFeita;
 	std::cout << "Escolha uma das opções abaixo:\n";
 	std::cout << "[1] Para Salvar manualmente os pontos.\n";
-	std::cout << "[2] Para Ler os Pontos Salvos.\n";
+	std::cout << "[2] Para o Carro andar automáticamente.\n";
 	std::cin >> escolhaFeita;
 
 

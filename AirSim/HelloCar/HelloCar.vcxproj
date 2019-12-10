@@ -34,7 +34,6 @@
     <ClInclude Include="Interp.h" />
     <ClInclude Include="LateralControl.h" />
     <ClInclude Include="LongitudinalControl.h" />
-    <ClInclude Include="MAIN.H" />
     <ClInclude Include="Waypoints.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
