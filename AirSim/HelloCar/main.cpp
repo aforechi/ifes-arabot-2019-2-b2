@@ -19,7 +19,7 @@ STRICT_MODE_ON
 #include "Waypoints.h"
 #include"LateralControl.h"
 #include "LongitudinalControl.h"
-#include <tchar.h>
+//#include <tchar.h>
 
 using namespace msr::airlib;
 
@@ -62,17 +62,17 @@ void moveInTheTrajectory(msr::airlib::CarRpcLibClient &client, float &accelerati
 
 int main()
 {
-	_tsetlocale(LC_ALL, _T("portuguese"));
+	//_tsetlocale(LC_ALL, _T("portuguese"));
 
 	Waypoints checkpoints, trajectory;
-	LateralControl lateral_control(2.3, 1, 8.5);
-	LongitudinalControl velocity_control(1.0, 1.0, 0.01);
+	LateralControl lateral_control(20, 6, 9);
+	LongitudinalControl velocity_control(1.0, 0, 0.01);
 	msr::airlib::CarRpcLibClient client;
 
 	int escolhaFeita;
-	std::cout << "Escolha uma das opções abaixo:\n";
+	std::cout << "Escolha uma das opcoes abaixo:\n";
 	std::cout << "[1] Para Salvar manualmente os pontos.\n";
-	std::cout << "[2] Para o Carro andar automáticamente.\n";
+	std::cout << "[2] Para o Carro andar automaticamente.\n";
 	std::cin >> escolhaFeita;
 
 
